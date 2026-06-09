@@ -439,6 +439,7 @@ footer{
 
 #langToggle:hover{
   border-color:var(--accent);
+  box-shadow:0 0 0 1px var(--accent),0 6px 18px rgba(88,166,255,.25);
 }
 
 #langToggle .lang-sep{
