@@ -242,6 +242,33 @@
 
   document.querySelectorAll('section').forEach((el) => waveObserver.observe(el));
 
+  /* ---------- Skill-Gruppen nacheinander einfliegen ---------- */
+  const skillsSection = document.getElementById('skills');
+  if (skillsSection) {
+    const groups = skillsSection.querySelectorAll('.skill-group');
+    const groupGap = 0.45;   // Sekunden zwischen den Gruppen
+    const pillGap = 0.08;    // Sekunden zwischen den Pills einer Gruppe
+
+    const groupObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        groups.forEach((group, gi) => {
+          const base = gi * groupGap;
+          // Überschrift / Gruppe einblenden
+          group.style.transitionDelay = base + 's';
+          // Pills der Gruppe gestaffelt nach der Gruppe
+          group.querySelectorAll('.tags li').forEach((pill, pi) => {
+            pill.style.transitionDelay = (base + 0.2 + pi * pillGap) + 's';
+          });
+          group.classList.add('in');
+        });
+        groupObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -15% 0px' });
+
+    groupObserver.observe(skillsSection);
+  }
+
 
   /* ---------- Tippeffekt im Hero (zweisprachig) ---------- */
   const twWords = {

@@ -382,6 +382,38 @@ footer{
 .reveal.visible .grid .card:nth-child(3){ transition-delay:.45s; }
 .reveal.visible .grid .card:nth-child(4){ transition-delay:.60s; }
 
+/* ---------- Skill-Gruppen + Pills nacheinander einfliegen ---------- */
+.skill-group{
+  opacity:0;
+  transform:translateX(60px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+
+.skill-group.in{
+  opacity:1;
+  transform:none;
+}
+
+.skill-group .tags li{
+  opacity:0;
+  transform:translateX(40px);
+  transition:opacity .45s ease,transform .45s ease;
+}
+
+.skill-group.in .tags li{
+  opacity:1;
+  transform:none;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .skill-group,
+  .skill-group .tags li{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
+
 @media (prefers-reduced-motion:reduce){
   .reveal .grid .card{
     opacity:1;
