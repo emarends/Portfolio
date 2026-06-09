@@ -1,0 +1,652 @@
+:root{
+  --bg:#0d1117;
+  --bg-soft:#161b22;
+  --line:#30363d;
+  --text:#e6edf3;
+  --text-dim:#8b949e;
+  --accent:#58a6ff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+a{
+  color:var(--accent);
+  text-decoration:none;
+  transition:color .2s ease;
+}
+
+a:hover{
+  color:var(--text);
+}
+
+/* ---------- Navigation ---------- */
+nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(13,17,23,.85);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:1rem 1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:1.25rem;
+  font-weight:700;
+  color:var(--text);
+  letter-spacing:.5px;
+}
+
+.logo:hover{
+  color:var(--accent);
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:2rem;
+}
+
+.nav-links a{
+  color:var(--text-dim);
+  font-weight:500;
+  position:relative;
+}
+
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:width .25s ease;
+}
+
+.nav-links a:hover{
+  color:var(--text);
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+/* ---------- Burger menu ---------- */
+.burger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:4px;
+}
+
+.burger span{
+  display:block;
+  width:24px;
+  height:2px;
+  background:var(--text);
+  border-radius:2px;
+  transition:transform .3s ease,opacity .3s ease;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:720px){
+  .burger{
+    display:flex;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:100%;
+    right:0;
+    left:0;
+    flex-direction:column;
+    gap:0;
+    background:var(--bg-soft);
+    border-bottom:1px solid var(--line);
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+  }
+
+  .nav-links.open{
+    max-height:320px;
+  }
+
+  .nav-links li{
+    border-top:1px solid var(--line);
+  }
+
+  .nav-links a{
+    display:block;
+    padding:1rem 1.5rem;
+  }
+
+  .nav-links a::after{
+    display:none;
+  }
+
+  .burger.open span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+  }
+
+  .burger.open span:nth-child(2){
+    opacity:0;
+  }
+
+  .burger.open span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+  }
+}
+
+/* ---------- Sections ---------- */
+section{
+  position:relative;
+  padding:5rem 1.5rem 9rem;
+}
+
+/* Zentrierte Inhaltsspalte: alle direkten Kinder teilen sich
+   dieselbe 1100px-Box, zentriert via auto-Margin. Text darin
+   ist standardmäßig linksbündig, sodass Überschrift und Inhalte
+   an derselben linken Kante starten. */
+section > *{
+  width:100%;
+  max-width:1100px;
+  margin-inline:auto;
+}
+
+/* Abwechselnde Hintergrundbänder */
+section:nth-of-type(even){
+  background:var(--bg-soft);
+}
+
+section h2{
+  font-size:2rem;
+  margin-bottom:1rem;
+  color:var(--text);
+}
+
+section h2 span{
+  color:var(--accent);
+}
+
+section > p{
+  color:var(--text-dim);
+}
+
+/* Wrapper nimmt volle Spaltenbreite (linke Kante bündig mit Überschrift),
+   die Absätze darin sind auf Lesebreite begrenzt und starten links. */
+.about-text p{
+  max-width:760px;
+}
+
+/* ---------- Cards (skills / projects) ---------- */
+.card{
+  background:var(--bg-soft);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:1.5rem;
+  transition:border-color .2s ease,transform .2s ease;
+}
+
+.card:hover{
+  border-color:var(--accent);
+  transform:translateY(-3px);
+  box-shadow:0 0 0 1px var(--accent),0 8px 30px rgba(88,166,255,.25);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.25rem;
+  margin-top:2rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-block;
+  margin-top:1.5rem;
+  padding:.7rem 1.5rem;
+  background:var(--accent);
+  color:var(--bg);
+  font-weight:600;
+  border-radius:8px;
+  transition:opacity .2s ease;
+}
+
+.btn:hover{
+  color:var(--bg);
+  opacity:.85;
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  padding:7rem 1.5rem 8rem;
+}
+
+.hero-content{
+  position:relative;
+  z-index:1;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.hero-eyebrow{
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-size:.9rem;
+  margin-bottom:.75rem;
+}
+
+.hero h1{
+  font-size:clamp(2.5rem,6vw,4rem);
+  line-height:1.1;
+  color:var(--text);
+  margin-bottom:1rem;
+}
+
+.hero-sub{
+  font-size:1.2rem;
+  color:var(--text-dim);
+  max-width:600px;
+}
+
+.hero-sub span{
+  color:var(--accent);
+}
+
+.hero-actions{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+/* ---------- Headings in cards ---------- */
+.card h3{
+  color:var(--text);
+  margin-bottom:.5rem;
+  font-size:1.1rem;
+}
+
+.card-link{
+  display:inline-block;
+  margin-top:1rem;
+  font-weight:500;
+  font-size:.95rem;
+}
+
+/* ---------- Ghost button ---------- */
+.btn-ghost{
+  background:transparent;
+  color:var(--accent);
+  border:1px solid var(--line);
+}
+
+.btn-ghost:hover{
+  color:var(--text);
+  border-color:var(--accent);
+  opacity:1;
+}
+
+/* ---------- Contact ---------- */
+.contact .socials{
+  display:flex;
+  gap:1.5rem;
+  margin-top:2rem;
+}
+
+.contact .socials a{
+  color:var(--text-dim);
+  font-weight:500;
+}
+
+.contact .socials a:hover{
+  color:var(--accent);
+}
+
+/* ---------- Footer ---------- */
+footer{
+  max-width:1100px;
+  margin:0 auto;
+  padding:2rem 1.5rem;
+  color:var(--text-dim);
+  font-size:.9rem;
+  text-align:center;
+}
+
+/* ---------- Scroll Slide-in (von rechts) ---------- */
+.reveal{
+  opacity:0;
+  transform:translateX(80px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
+
+/* ---------- Karten gestaffelt einfliegen ---------- */
+.reveal .grid .card{
+  opacity:0;
+  transform:translateX(60px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+
+.reveal.visible .grid .card{
+  opacity:1;
+  transform:none;
+}
+
+.reveal.visible .grid .card:nth-child(1){ transition-delay:.15s; }
+.reveal.visible .grid .card:nth-child(2){ transition-delay:.30s; }
+.reveal.visible .grid .card:nth-child(3){ transition-delay:.45s; }
+.reveal.visible .grid .card:nth-child(4){ transition-delay:.60s; }
+
+@media (prefers-reduced-motion:reduce){
+  .reveal .grid .card{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
+
+/* ---------- Tippeffekt ---------- */
+.hero-sub .typewriter{
+  color:var(--accent);
+}
+
+.hero-sub .cursor{
+  color:var(--accent);
+  font-weight:400;
+  animation:blink 1s step-end infinite;
+}
+
+@keyframes blink{
+  0%,100%{ opacity:1; }
+  50%{ opacity:0; }
+}
+
+/* ---------- Aktive Nav-Hervorhebung ---------- */
+.nav-links a.active{
+  color:var(--text);
+}
+
+.nav-links a.active::after{
+  width:100%;
+}
+
+/* ---------- Scroll-Fortschrittsbalken ---------- */
+.scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  width:0;
+  background:var(--accent);
+  z-index:200;
+  transition:width .1s linear;
+}
+
+/* ---------- Timeline ---------- */
+.timeline{
+  position:relative;
+  margin-top:2.5rem;
+  padding-left:2rem;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:7px;
+  top:6px;
+  bottom:6px;
+  width:2px;
+  background:var(--line);
+}
+
+.timeline-item{
+  position:relative;
+  padding-bottom:2rem;
+}
+
+.timeline-item:last-child{
+  padding-bottom:0;
+}
+
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:-2rem;
+  top:6px;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:var(--bg);
+  border:2px solid var(--accent);
+  transform:translateX(1px);
+  transition:box-shadow .3s ease;
+}
+
+.timeline-item:hover::before{
+  box-shadow:0 0 12px rgba(88,166,255,.7);
+}
+
+.timeline-date{
+  display:inline-block;
+  color:var(--accent);
+  font-size:.85rem;
+  font-weight:600;
+  letter-spacing:.5px;
+  margin-bottom:.25rem;
+}
+
+.timeline-item h3{
+  color:var(--text);
+  font-size:1.1rem;
+  margin-bottom:.2rem;
+}
+
+.timeline-place{
+  display:block;
+  color:var(--text-dim);
+  font-size:.95rem;
+}
+
+.timeline-item p{
+  margin-top:.5rem;
+}
+
+/* ---------- Skill-Balken ---------- */
+/* ---------- Skill-Gruppen mit Tags (Pills) ---------- */
+.skill-groups{
+  margin-top:2rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2rem;
+}
+
+.skill-group h3{
+  color:var(--text);
+  font-size:1.05rem;
+  margin-bottom:.9rem;
+}
+
+.tags{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  padding:0;
+  margin:0;
+}
+
+.tags li{
+  background:var(--bg-soft);
+  border:1px solid var(--line);
+  color:var(--text);
+  padding:.4rem .9rem;
+  border-radius:999px;
+  font-size:.9rem;
+  transition:border-color .2s ease,color .2s ease,transform .2s ease;
+  cursor:default;
+}
+
+.tags li:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+  transform:translateY(-2px);
+  box-shadow:0 0 0 1px var(--accent),0 6px 18px rgba(88,166,255,.25);
+}
+
+/* ---------- Kontaktformular ---------- */
+.contact-form{
+  margin-top:2rem;
+  text-align:left;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  max-width:600px;
+}
+
+.contact-form > .form-group{
+  max-width:600px;
+}
+
+.form-group{
+  margin-bottom:1.1rem;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:.4rem;
+  color:var(--text);
+  font-size:.9rem;
+  font-weight:500;
+}
+
+.form-group input,
+.form-group textarea{
+  width:100%;
+  padding:.7rem .9rem;
+  background:var(--bg-soft);
+  border:1px solid var(--line);
+  border-radius:8px;
+  color:var(--text);
+  font-family:inherit;
+  font-size:.95rem;
+  transition:border-color .2s ease,box-shadow .2s ease;
+  resize:vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(88,166,255,.18);
+}
+
+.form-group .error{
+  display:block;
+  color:#f85149;
+  font-size:.8rem;
+  margin-top:.3rem;
+  min-height:1rem;
+}
+
+.form-status{
+  margin-top:1rem;
+  font-size:.9rem;
+  color:var(--text-dim);
+}
+
+.form-status.success{
+  color:var(--accent);
+}
+
+@media (max-width:560px){
+  .form-row{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+}
+
+/* ---------- Geschwungene Wellen-Übergänge ---------- */
+/* Jede Section bekommt oben eine Welle, die den Übergang
+   zur vorherigen Section in geschwungener Form formt.    */
+section::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:110px;
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  transform:translateY(-99%);
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .6s ease;
+}
+
+/* Welle erscheint früh, sobald sie von unten ins Bild scrollt */
+section.wave-in::before{
+  opacity:1;
+}
+
+/* Welle vor hellen Bändern (even): helle Welle ragt nach oben */
+section:nth-of-type(even)::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 110' preserveAspectRatio='none'%3E%3Cpath d='M0,110 C300,20 560,5 720,55 C880,105 1140,95 1440,25 L1440,110 Z' fill='%23161b22'/%3E%3Cpath d='M0,110 C300,20 560,5 720,55 C880,105 1140,95 1440,25' fill='none' stroke='%2358a6ff' stroke-opacity='0.35' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* Welle vor dunklen Bändern (odd): dunkle Welle ragt nach oben */
+section:nth-of-type(odd)::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 110' preserveAspectRatio='none'%3E%3Cpath d='M0,110 C300,20 560,5 720,55 C880,105 1140,95 1440,25 L1440,110 Z' fill='%230d1117'/%3E%3Cpath d='M0,110 C300,20 560,5 720,55 C880,105 1140,95 1440,25' fill='none' stroke='%2358a6ff' stroke-opacity='0.35' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* Erste Section (about) sitzt direkt unter dem dunklen Hero. */
+section:first-of-type::before{
+  display:none;
+}
