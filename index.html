@@ -18,11 +18,16 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="menu">
-      <li><a href="#about">Über mich</a></li>
-      <li><a href="#career">Werdegang</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projekte</a></li>
-      <li><a href="#contact">Kontakt</a></li>
+      <li><a href="#about" data-de="Über mich" data-en="About">Über mich</a></li>
+      <li><a href="#career" data-de="Werdegang" data-en="Experience">Werdegang</a></li>
+      <li><a href="#skills" data-de="Skills" data-en="Skills">Skills</a></li>
+      <li><a href="#projects" data-de="Projekte" data-en="Projects">Projekte</a></li>
+      <li><a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+      <li class="lang-switch">
+        <button id="langToggle" type="button" aria-label="Sprache wechseln">
+          <span class="lang-de">DE</span><span class="lang-sep">/</span><span class="lang-en">EN</span>
+        </button>
+      </li>
     </ul>
   </div>
 </nav>
@@ -30,27 +35,28 @@
 <!-- Hero -->
 <header class="hero">
   <div class="hero-content">
-    <p class="hero-eyebrow">Hi, ich bin</p>
+    <p class="hero-eyebrow" data-de="Hi, ich bin" data-en="Hi, I'm">Hi, ich bin</p>
     <h1>Emma Arends</h1>
-    <p class="hero-sub">Studentin der <span class="typewriter" id="typewriter"></span><span class="cursor">&#9608;</span></p>
+    <p class="hero-sub"><span class="hero-prefix" data-de="Studentin der " data-en="Student of ">Studentin der </span><span class="typewriter" id="typewriter"></span><span class="cursor">&#9608;</span></p>
     <div class="hero-actions">
-      <a href="#projects" class="btn">Projekte ansehen</a>
-      <a href="#contact" class="btn btn-ghost">Kontakt</a>
+      <a href="#projects" class="btn" data-de="Projekte ansehen" data-en="View projects">Projekte ansehen</a>
+      <a href="#contact" class="btn btn-ghost" data-de="Kontakt" data-en="Contact">Kontakt</a>
     </div>
   </div>
 </header>
 
 <!-- Über mich -->
 <section id="about" class="reveal">
-  <h2>Über <span>mich</span></h2>
+  <h2 class="t-html" data-de="Über <span>mich</span>" data-en="About <span>me</span>">Über <span>mich</span></h2>
   <div class="about-text">
-    <p>
+    <p data-de="Ich studiere Softwareentwicklung an der IU Internationalen Hochschule und habe zuvor meine Ausbildung im Bereich Informations- und Kommunikationstechnik am Berufskolleg für Technik und Informatik abgeschlossen. Programmieren begeistert mich besonders dort, wo aus einer Idee eine funktionierende Anwendung wird – egal ob im Web oder in Java." data-en="I'm studying software development at IU International University of Applied Sciences, after completing my vocational training in information and communications technology at the Berufskolleg für Technik und Informatik. I'm especially excited about programming when an idea turns into a working application – whether on the web or in Java.">
       Ich studiere Softwareentwicklung an der IU Internationalen Hochschule und habe
       zuvor meine Ausbildung im Bereich Informations- und Kommunikationstechnik am
       Berufskolleg für Technik und Informatik abgeschlossen. Programmieren begeistert
-      mich besonders dort, wo aus einer Idee eine funktionierende Anwendung wird.
+      mich besonders dort, wo aus einer Idee eine funktionierende Anwendung wird –
+      egal ob im Web oder in Java.
     </p>
-    <p style="margin-top:1rem;">
+    <p style="margin-top:1rem;" data-de="Neben dem Studium arbeite ich als Schichtleitung bei Flink SE, wo ich ein Team koordiniere und für reibungslose Abläufe sorge. Erste praktische Programmiererfahrung habe ich unter anderem bei der Datenbankentwicklung und beim Leiten einer Roboter-AG für Schüler:innen gesammelt." data-en="Alongside my studies, I work as a shift lead at Flink SE, where I coordinate a team and keep operations running smoothly. I gained my first hands-on programming experience in database development and by leading a robotics club for school students, among other things.">
       Neben dem Studium arbeite ich als Schichtleitung bei Flink SE, wo ich ein Team
       koordiniere und für reibungslose Abläufe sorge. Erste praktische Programmier&shy;erfahrung
       habe ich unter anderem bei der Datenbankentwicklung und beim Leiten einer Roboter-AG
@@ -61,48 +67,48 @@
 
 <!-- Werdegang / Timeline -->
 <section id="career" class="reveal">
-  <h2>Werde<span>gang</span></h2>
-  <p>Meine bisherigen Stationen in Ausbildung und Beruf:</p>
+  <h2 class="t-html" data-de="Werde<span>gang</span>" data-en="Experi<span>ence</span>">Werde<span>gang</span></h2>
+  <p data-de="Meine bisherigen Stationen in Ausbildung und Beruf:" data-en="My education and professional journey so far:">Meine bisherigen Stationen in Ausbildung und Beruf:</p>
   <div class="timeline">
     <div class="timeline-item">
-      <span class="timeline-date">10/2023 – Heute</span>
-      <h3>Software Entwicklung (Studium)</h3>
-      <span class="timeline-place">IU Internationale Hochschule · Düsseldorf</span>
+      <span class="timeline-date" data-de="10/2023 – Heute" data-en="10/2023 – Present">10/2023 – Heute</span>
+      <h3 data-de="Software Entwicklung (Studium)" data-en="Software Development (Degree)">Software Entwicklung (Studium)</h3>
+      <span class="timeline-place" data-de="IU Internationale Hochschule · Düsseldorf" data-en="IU International University · Düsseldorf">IU Internationale Hochschule · Düsseldorf</span>
     </div>
     <div class="timeline-item">
-      <span class="timeline-date">02/2024 – Heute</span>
-      <h3>Ops Associate+ / Schichtleitung</h3>
+      <span class="timeline-date" data-de="02/2024 – Heute" data-en="02/2024 – Present">02/2024 – Heute</span>
+      <h3 data-de="Ops Associate+ / Schichtleitung" data-en="Ops Associate+ / Shift Lead">Ops Associate+ / Schichtleitung</h3>
       <span class="timeline-place">Flink SE · Düsseldorf</span>
-      <p>Personalkoordination, Aufgabenverteilung und Sicherstellung reibungsloser Abläufe sowie Einhaltung von Sicherheitsstandards.</p>
+      <p data-de="Personalkoordination, Aufgabenverteilung und Sicherstellung reibungsloser Abläufe sowie Einhaltung von Sicherheitsstandards." data-en="Coordinating staff, assigning tasks and ensuring smooth operations as well as compliance with safety standards.">Personalkoordination, Aufgabenverteilung und Sicherstellung reibungsloser Abläufe sowie Einhaltung von Sicherheitsstandards.</p>
     </div>
     <div class="timeline-item">
-      <span class="timeline-date">08/2021 – 07/2023</span>
-      <h3>Berufsfachschule IT (Note 1,4)</h3>
-      <span class="timeline-place">Berufskolleg für Technik und Informatik · Neuss</span>
+      <span class="timeline-date" data-de="08/2021 – 07/2023" data-en="08/2021 – 07/2023">08/2021 – 07/2023</span>
+      <h3 data-de="Berufsfachschule IT (Note 1,4)" data-en="Vocational School IT (GPA 1.4)">Berufsfachschule IT (Note 1,4)</h3>
+      <span class="timeline-place" data-de="Berufskolleg für Technik und Informatik · Neuss" data-en="Vocational College for Technology and IT · Neuss">Berufskolleg für Technik und Informatik · Neuss</span>
     </div>
     <div class="timeline-item">
-      <span class="timeline-date">08/2022 – 04/2023</span>
-      <h3>Praktikum · Roboter-AG</h3>
-      <span class="timeline-place">Realschule Neuss-Holzheim</span>
-      <p>Leitung einer Roboter-AG, Aufbau von Lego-Mindstorms-Robotern und Programmierunterricht mit Scratch.</p>
+      <span class="timeline-date" data-de="08/2022 – 04/2023" data-en="08/2022 – 04/2023">08/2022 – 04/2023</span>
+      <h3 data-de="Praktikum · Roboter-AG" data-en="Internship · Robotics Club">Praktikum · Roboter-AG</h3>
+      <span class="timeline-place" data-de="Realschule Neuss-Holzheim" data-en="Realschule Neuss-Holzheim">Realschule Neuss-Holzheim</span>
+      <p data-de="Leitung einer Roboter-AG, Aufbau von Lego-Mindstorms-Robotern und Programmierunterricht mit Scratch." data-en="Leading a robotics club, building Lego Mindstorms robots and teaching programming with Scratch.">Leitung einer Roboter-AG, Aufbau von Lego-Mindstorms-Robotern und Programmierunterricht mit Scratch.</p>
     </div>
     <div class="timeline-item">
-      <span class="timeline-date">03/2022 – 04/2022</span>
-      <h3>Praktikum · Datenbankentwicklung</h3>
+      <span class="timeline-date" data-de="03/2022 – 04/2022" data-en="03/2022 – 04/2022">03/2022 – 04/2022</span>
+      <h3 data-de="Praktikum · Datenbankentwicklung" data-en="Internship · Database Development">Praktikum · Datenbankentwicklung</h3>
       <span class="timeline-place">interactive associates e.K. · Erkrath</span>
-      <p>Datenbankprogrammierung mit FileMaker: Skripte erstellen und debuggen, Ansichten anpassen und neu anlegen.</p>
+      <p data-de="Datenbankprogrammierung mit FileMaker: Skripte erstellen und debuggen, Ansichten anpassen und neu anlegen." data-en="Database programming with FileMaker: creating and debugging scripts, adjusting and creating new layouts.">Datenbankprogrammierung mit FileMaker: Skripte erstellen und debuggen, Ansichten anpassen und neu anlegen.</p>
     </div>
   </div>
 </section>
 
 <!-- Skills -->
 <section id="skills" class="reveal">
-  <h2>Skills</h2>
-  <p>Technologien und Werkzeuge, mit denen ich arbeite:</p>
+  <h2 data-de="Skills" data-en="Skills">Skills</h2>
+  <p data-de="Technologien und Werkzeuge, mit denen ich arbeite:" data-en="Technologies and tools I work with:">Technologien und Werkzeuge, mit denen ich arbeite:</p>
 
   <div class="skill-groups">
     <div class="skill-group">
-      <h3>Sprachen</h3>
+      <h3 data-de="Sprachen" data-en="Languages">Sprachen</h3>
       <ul class="tags">
         <li>Python</li>
         <li>Java</li>
@@ -112,7 +118,7 @@
       </ul>
     </div>
     <div class="skill-group">
-      <h3>Web &amp; Frameworks</h3>
+      <h3 data-de="Web &amp; Frameworks" data-en="Web &amp; Frameworks">Web &amp; Frameworks</h3>
       <ul class="tags">
         <li>HTML</li>
         <li>CSS</li>
@@ -124,7 +130,7 @@
       </ul>
     </div>
     <div class="skill-group">
-      <h3>Datenbank &amp; ORM</h3>
+      <h3 data-de="Datenbank &amp; ORM" data-en="Database &amp; ORM">Datenbank &amp; ORM</h3>
       <ul class="tags">
         <li>MySQL</li>
         <li>JPA (Hibernate)</li>
@@ -132,7 +138,7 @@
       </ul>
     </div>
     <div class="skill-group">
-      <h3>Tools &amp; Build</h3>
+      <h3 data-de="Tools &amp; Build" data-en="Tools &amp; Build">Tools &amp; Build</h3>
       <ul class="tags">
         <li>Git &amp; GitHub</li>
         <li>Apache Maven</li>
@@ -144,63 +150,63 @@
 
   <div class="grid" style="margin-top:2.5rem;">
     <div class="card">
-      <h3>Sprachen</h3>
-      <p>Deutsch (Muttersprache), Englisch (versiert)</p>
+      <h3 data-de="Sprachen" data-en="Languages">Sprachen</h3>
+      <p data-de="Deutsch (Muttersprache), Englisch (versiert)" data-en="German (native), English (proficient)">Deutsch (Muttersprache), Englisch (versiert)</p>
     </div>
     <div class="card">
-      <h3>Sonstiges</h3>
-      <p>Führerschein Klasse B, EDV-Grundlagen Hardware</p>
+      <h3 data-de="Sonstiges" data-en="Other">Sonstiges</h3>
+      <p data-de="Führerschein Klasse B, EDV-Grundlagen Hardware" data-en="Driver's license (class B), basic computer hardware skills">Führerschein Klasse B, EDV-Grundlagen Hardware</p>
     </div>
   </div>
 </section>
 
 <!-- Projekte -->
 <section id="projects" class="reveal">
-  <h2>Projekte</h2>
-  <p>Eine Auswahl meiner Arbeiten von GitHub:</p>
+  <h2 data-de="Projekte" data-en="Projects">Projekte</h2>
+  <p data-de="Eine Auswahl meiner Arbeiten von GitHub:" data-en="A selection of my work from GitHub:">Eine Auswahl meiner Arbeiten von GitHub:</p>
   <div class="grid">
     <div class="card">
-      <h3>CO₂-Emissionen Webanwendung</h3>
-      <p>Eine Webanwendungsoberfläche zur Darstellung von CO₂-Emissionsdaten, entstanden im Rahmen eines Hochschulkurses. Umgesetzt mit HTML, CSS und JavaScript.</p>
-      <a href="https://github.com/emarends/Kurs-Programmierung-von-Webanwendungsoberfl-chen" class="card-link" target="_blank" rel="noopener">Auf GitHub ansehen →</a>
+      <h3 data-de="CO₂-Emissionen Webanwendung" data-en="CO₂ Emissions Web App">CO₂-Emissionen Webanwendung</h3>
+      <p data-de="Eine Webanwendungsoberfläche zur Darstellung von CO₂-Emissionsdaten, entstanden im Rahmen eines Hochschulkurses. Umgesetzt mit HTML, CSS und JavaScript." data-en="A web application interface for visualizing CO₂ emissions data, built as part of a university course. Implemented with HTML, CSS and JavaScript.">Eine Webanwendungsoberfläche zur Darstellung von CO₂-Emissionsdaten, entstanden im Rahmen eines Hochschulkurses. Umgesetzt mit HTML, CSS und JavaScript.</p>
+      <a href="https://github.com/emarends/Kurs-Programmierung-von-Webanwendungsoberfl-chen" class="card-link" target="_blank" rel="noopener" data-de="Auf GitHub ansehen →" data-en="View on GitHub →">Auf GitHub ansehen →</a>
     </div>
     <div class="card">
       <h3>LikeHeroToZero</h3>
-      <p>Ein Java-Projekt auf Basis von Maven mit Web-Oberfläche. Kombination aus Java-Backend und HTML-Frontend.</p>
-      <a href="https://github.com/emarends/LikeHeroToZero" class="card-link" target="_blank" rel="noopener">Auf GitHub ansehen →</a>
+      <p data-de="Ein Java-Projekt auf Basis von Maven mit Web-Oberfläche. Kombination aus Java-Backend und HTML-Frontend." data-en="A Java project based on Maven with a web interface. A combination of Java backend and HTML frontend.">Ein Java-Projekt auf Basis von Maven mit Web-Oberfläche. Kombination aus Java-Backend und HTML-Frontend.</p>
+      <a href="https://github.com/emarends/LikeHeroToZero" class="card-link" target="_blank" rel="noopener" data-de="Auf GitHub ansehen →" data-en="View on GitHub →">Auf GitHub ansehen →</a>
     </div>
   </div>
 </section>
 
 <!-- Kontakt -->
 <section id="contact" class="contact reveal">
-  <h2>Kontakt</h2>
-  <p>Du möchtest dich vernetzen oder hast eine Frage? Schreib mir gerne!</p>
+  <h2 data-de="Kontakt" data-en="Contact">Kontakt</h2>
+  <p data-de="Du möchtest dich vernetzen oder hast eine Frage? Schreib mir gerne!" data-en="Want to connect or have a question? Feel free to reach out!">Du möchtest dich vernetzen oder hast eine Frage? Schreib mir gerne!</p>
 
   <form class="contact-form" id="contactForm" novalidate>
     <div class="form-row">
       <div class="form-group">
-        <label for="name">Name</label>
+        <label for="name" data-de="Name" data-en="Name">Name</label>
         <input type="text" id="name" name="name" required>
         <span class="error" data-for="name"></span>
       </div>
       <div class="form-group">
-        <label for="email">E-Mail</label>
+        <label for="email" data-de="E-Mail" data-en="Email">E-Mail</label>
         <input type="email" id="email" name="email" required>
         <span class="error" data-for="email"></span>
       </div>
     </div>
     <div class="form-group">
-      <label for="message">Nachricht</label>
+      <label for="message" data-de="Nachricht" data-en="Message">Nachricht</label>
       <textarea id="message" name="message" rows="5" required></textarea>
       <span class="error" data-for="message"></span>
     </div>
-    <button type="submit" class="btn">Nachricht senden</button>
+    <button type="submit" class="btn" data-de="Nachricht senden" data-en="Send message">Nachricht senden</button>
     <p class="form-status" id="formStatus"></p>
   </form>
 
   <div class="socials">
-    <a href="mailto:emma_arends@outlook.de">E-Mail</a>
+    <a href="mailto:emma_arends@outlook.de" data-de="E-Mail" data-en="Email">E-Mail</a>
     <a href="https://github.com/emarends" target="_blank" rel="noopener">GitHub</a>
   </div>
 </section>
@@ -237,30 +243,41 @@
   document.querySelectorAll('section').forEach((el) => waveObserver.observe(el));
 
 
-  /* ---------- Tippeffekt im Hero ---------- */
-  const words = ['Softwareentwicklung', 'Webanwendungen', 'Problemlösungen'];
+  /* ---------- Tippeffekt im Hero (zweisprachig) ---------- */
+  const twWords = {
+    de: ['Softwareentwicklung', 'Webanwendungen', 'Problemlösungen'],
+    en: ['software development', 'web applications', 'problem solving']
+  };
   const twEl = document.getElementById('typewriter');
-  let wordIndex = 0, charIndex = 0, deleting = false;
+  let wordIndex = 0, charIndex = 0, deleting = false, twTimer = null;
+
+  function currentWords() {
+    return twWords[document.documentElement.lang === 'en' ? 'en' : 'de'];
+  }
 
   function type() {
-    const current = words[wordIndex];
-    if (deleting) {
-      charIndex--;
-    } else {
-      charIndex++;
-    }
+    const words = currentWords();
+    const current = words[wordIndex % words.length];
+    charIndex += deleting ? -1 : 1;
     twEl.textContent = current.substring(0, charIndex);
 
     let delay = deleting ? 50 : 110;
     if (!deleting && charIndex === current.length) {
-      delay = 1600;          // Pause am Wortende
+      delay = 1600;
       deleting = true;
     } else if (deleting && charIndex === 0) {
       deleting = false;
       wordIndex = (wordIndex + 1) % words.length;
       delay = 400;
     }
-    setTimeout(type, delay);
+    twTimer = setTimeout(type, delay);
+  }
+
+  function restartTypewriter() {
+    if (twTimer) clearTimeout(twTimer);
+    wordIndex = 0; charIndex = 0; deleting = false;
+    twEl.textContent = '';
+    type();
   }
   if (twEl) type();
 
@@ -301,6 +318,15 @@
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    const en = document.documentElement.lang === 'en';
+    const t = {
+      name: en ? 'Please enter your name.' : 'Bitte gib deinen Namen ein.',
+      emailReq: en ? 'Please enter your email.' : 'Bitte gib deine E-Mail ein.',
+      emailInvalid: en ? 'Please enter a valid email.' : 'Bitte gib eine gültige E-Mail ein.',
+      message: en ? 'Please enter a message.' : 'Bitte gib eine Nachricht ein.',
+      subject: en ? 'Contact request from ' : 'Kontaktanfrage von ',
+      opening: en ? 'Opening your email app …' : 'Dein E-Mail-Programm wird geöffnet …'
+    };
     let valid = true;
     ['name', 'email', 'message'].forEach((f) => setError(f, ''));
     status.textContent = '';
@@ -310,25 +336,48 @@
     const email = form.email.value.trim();
     const message = form.message.value.trim();
 
-    if (!name) { setError('name', 'Bitte gib deinen Namen ein.'); valid = false; }
+    if (!name) { setError('name', t.name); valid = false; }
     if (!email) {
-      setError('email', 'Bitte gib deine E-Mail ein.'); valid = false;
+      setError('email', t.emailReq); valid = false;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError('email', 'Bitte gib eine gültige E-Mail ein.'); valid = false;
+      setError('email', t.emailInvalid); valid = false;
     }
-    if (!message) { setError('message', 'Bitte gib eine Nachricht ein.'); valid = false; }
+    if (!message) { setError('message', t.message); valid = false; }
 
     if (!valid) return;
 
-    // Öffnet das E-Mail-Programm mit vorausgefüllter Nachricht.
-    const subject = encodeURIComponent('Kontaktanfrage von ' + name);
+    const subject = encodeURIComponent(t.subject + name);
     const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
     window.location.href = 'mailto:emma_arends@outlook.de?subject=' + subject + '&body=' + body;
 
-    status.textContent = 'Dein E-Mail-Programm wird geöffnet …';
+    status.textContent = t.opening;
     status.classList.add('success');
     form.reset();
   });
+
+  /* ---------- Sprach-Umschalter (DE / EN) ---------- */
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-de]').forEach((el) => {
+      const val = el.getAttribute('data-' + lang);
+      if (val === null) return;
+      if (el.classList.contains('t-html')) {
+        el.innerHTML = val;          // Überschriften mit <span>
+      } else {
+        el.textContent = val;
+      }
+    });
+    // Umschalter-Optik aktualisieren
+    document.getElementById('langToggle').classList.toggle('en-active', lang === 'en');
+    // Tippeffekt in neuer Sprache neu starten
+    if (twEl) restartTypewriter();
+  }
+
+  document.getElementById('langToggle').addEventListener('click', () => {
+    const next = document.documentElement.lang === 'en' ? 'de' : 'en';
+    setLanguage(next);
+  });
+
 </script>
 
 </body>

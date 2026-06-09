@@ -415,6 +415,45 @@ footer{
   width:100%;
 }
 
+/* ---------- Sprach-Umschalter (DE / EN) ---------- */
+.lang-switch{
+  display:flex;
+  align-items:center;
+}
+
+#langToggle{
+  background:transparent;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:.3rem .7rem;
+  cursor:pointer;
+  font-family:inherit;
+  font-size:.8rem;
+  font-weight:600;
+  letter-spacing:.5px;
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+  transition:border-color .2s ease;
+}
+
+#langToggle:hover{
+  border-color:var(--accent);
+}
+
+#langToggle .lang-sep{
+  color:var(--text-dim);
+  font-weight:400;
+}
+
+/* Standard: DE aktiv */
+#langToggle .lang-de{ color:var(--accent); }
+#langToggle .lang-en{ color:var(--text-dim); }
+
+/* EN aktiv */
+#langToggle.en-active .lang-de{ color:var(--text-dim); }
+#langToggle.en-active .lang-en{ color:var(--accent); }
+
 /* ---------- Scroll-Fortschrittsbalken ---------- */
 .scroll-progress{
   position:fixed;
