@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="CSS/styles.css">
-<title>Emma Arends</title>
+<title>Portfolio</title>
 </head>
 <body>
 
@@ -83,7 +83,7 @@
     </div>
     <div class="timeline-item">
       <span class="timeline-date" data-de="08/2021 – 07/2023" data-en="08/2021 – 07/2023">08/2021 – 07/2023</span>
-      <h3 data-de="Berufsfachschule IT (Note 1,4)" data-en="Vocational School IT (GPA 3.5)">Berufsfachschule IT (Note 1,4)</h3>
+      <h3 data-de="Berufsfachschule IT (Note 1,4)" data-en="Vocational School IT (GPA 1.4)">Berufsfachschule IT (Note 1,4)</h3>
       <span class="timeline-place" data-de="Berufskolleg für Technik und Informatik · Neuss" data-en="Vocational College for Technology and IT · Neuss">Berufskolleg für Technik und Informatik · Neuss</span>
     </div>
     <div class="timeline-item">
@@ -164,18 +164,33 @@
 <section id="projects" class="reveal">
   <h2 data-de="Projekte" data-en="Projects">Projekte</h2>
   <p data-de="Eine Auswahl meiner Arbeiten von GitHub:" data-en="A selection of my work from GitHub:">Eine Auswahl meiner Arbeiten von GitHub:</p>
-  <div class="grid">
-    <div class="card">
-      <h3 data-de="CO₂-Emissionen Webanwendung" data-en="CO₂ Emissions Web App">CO₂-Emissionen Webanwendung</h3>
-      <p data-de="Eine Webanwendungsoberfläche zur Darstellung von CO₂-Emissionsdaten, entstanden im Rahmen eines Hochschulkurses. Umgesetzt mit HTML, CSS und JavaScript." data-en="A web application interface for visualizing CO₂ emissions data, built as part of a university course. Implemented with HTML, CSS and JavaScript.">Eine Webanwendungsoberfläche zur Darstellung von CO₂-Emissionsdaten, entstanden im Rahmen eines Hochschulkurses. Umgesetzt mit HTML, CSS und JavaScript.</p>
-      <a href="https://github.com/emarends/Kurs-Programmierung-von-Webanwendungsoberfl-chen" class="card-link" target="_blank" rel="noopener" data-de="Auf GitHub ansehen →" data-en="View on GitHub →">Auf GitHub ansehen →</a>
+
+  <div class="carousel" id="projectCarousel">
+    <button class="carousel-arrow prev" id="projPrev" type="button" aria-label="Vorheriges Projekt">&#8249;</button>
+
+    <div class="carousel-viewport">
+      <div class="carousel-track" id="projTrack">
+        <div class="carousel-slide">
+          <div class="card">
+            <h3 data-de="CO₂-Emissionen Webanwendung" data-en="CO₂ Emissions Web App">CO₂-Emissionen Webanwendung</h3>
+            <p data-de="Eine Webanwendungsoberfläche zur Darstellung von CO₂-Emissionsdaten, entstanden im Rahmen eines Hochschulkurses. Umgesetzt mit HTML, CSS und JavaScript." data-en="A web application interface for visualizing CO₂ emissions data, built as part of a university course. Implemented with HTML, CSS and JavaScript.">Eine Webanwendungsoberfläche zur Darstellung von CO₂-Emissionsdaten, entstanden im Rahmen eines Hochschulkurses. Umgesetzt mit HTML, CSS und JavaScript.</p>
+            <a href="https://github.com/emarends/Kurs-Programmierung-von-Webanwendungsoberfl-chen" class="card-link" target="_blank" rel="noopener" data-de="Auf GitHub ansehen →" data-en="View on GitHub →">Auf GitHub ansehen →</a>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="card">
+            <h3>LikeHeroToZero</h3>
+            <p data-de="Ein Java-Projekt auf Basis von Maven mit Web-Oberfläche. Kombination aus Java-Backend und HTML-Frontend." data-en="A Java project based on Maven with a web interface. A combination of Java backend and HTML frontend.">Ein Java-Projekt auf Basis von Maven mit Web-Oberfläche. Kombination aus Java-Backend und HTML-Frontend.</p>
+            <a href="https://github.com/emarends/LikeHeroToZero" class="card-link" target="_blank" rel="noopener" data-de="Auf GitHub ansehen →" data-en="View on GitHub →">Auf GitHub ansehen →</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>LikeHeroToZero</h3>
-      <p data-de="Ein Java-Projekt auf Basis von Maven mit Web-Oberfläche. Kombination aus Java-Backend und HTML-Frontend." data-en="A Java project based on Maven with a web interface. A combination of Java backend and HTML frontend.">Ein Java-Projekt auf Basis von Maven mit Web-Oberfläche. Kombination aus Java-Backend und HTML-Frontend.</p>
-      <a href="https://github.com/emarends/LikeHeroToZero" class="card-link" target="_blank" rel="noopener" data-de="Auf GitHub ansehen →" data-en="View on GitHub →">Auf GitHub ansehen →</a>
-    </div>
+
+    <button class="carousel-arrow next" id="projNext" type="button" aria-label="Nächstes Projekt">&#8250;</button>
   </div>
+
+  <div class="carousel-dots" id="projDots"></div>
 </section>
 
 <!-- Kontakt -->
@@ -404,6 +419,40 @@
     const next = document.documentElement.lang === 'en' ? 'de' : 'en';
     setLanguage(next);
   });
+
+  /* ---------- Projekt-Karussell ---------- */
+  (function () {
+    const track = document.getElementById('projTrack');
+    if (!track) return;
+    const slides = track.querySelectorAll('.carousel-slide');
+    const dotsWrap = document.getElementById('projDots');
+    let index = 0;
+
+    // Punkte erzeugen
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', 'Projekt ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = dotsWrap.querySelectorAll('button');
+
+    function update() {
+      track.style.transform = 'translateX(' + (-index * 100) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      update();
+    }
+
+    document.getElementById('projNext').addEventListener('click', () => goTo(index + 1));
+    document.getElementById('projPrev').addEventListener('click', () => goTo(index - 1));
+
+    update();
+  })();
 
 </script>
 
